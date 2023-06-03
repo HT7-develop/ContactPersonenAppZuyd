@@ -8,9 +8,4 @@ public partial class AppShell : Shell
 
         //Routing.RegisterRoute(nameof(ContactToevoegenPage), typeof(ContactToevoegenPage));
     }
-
-    private int Pages()
-    {
-        throw new NotImplementedException();
-    }
 }

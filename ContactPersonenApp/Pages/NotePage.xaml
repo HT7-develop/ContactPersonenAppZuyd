@@ -17,13 +17,13 @@
                HorizontalOptions="FillAndExpand" />
 
         <!-- dit zijn alle contacten in een template -->
-        <ListView x:Name="ContactsListView" Grid.Row="1" SelectionMode="None">
+        <ListView x:Name="ContactsListView" SelectedItem="{Binding SelectedContact}" ItemSelected="ContactsListView_ItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Frame BackgroundColor="orange" CornerRadius="15" Padding="0" Margin="10,5">
+                        <Frame BackgroundColor="Orange" CornerRadius="15" Padding="0" Margin="10,5">
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                                <Image Source="Images/person.png"/>
+                                <Image Source="{Binding ContactImage}"/>
                                 <Label Text="{Binding Voornaam}" Margin="0,0,10,0" />
                                 <Label Text="{Binding Achternaam}" Margin="0,0,10,0" />
                                 <Label Text="{Binding Telefoonnummer}" Margin="0,0,10,0" />
@@ -33,9 +33,5 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
-
-
-
     </Grid>
 </ContentPage>

@@ -57,6 +57,8 @@ namespace ContactPersonenApp
             contacts = LoadContacts();
         }
 
+
+
         public void AddContact(Contact contact)
         {
             contacts.Add(contact);
@@ -76,6 +78,19 @@ namespace ContactPersonenApp
             }
         }
 
+        public void UpdateContact(Contact contact)
+        {
+            // Find the index of the contact in the list
+            int index = contacts.FindIndex(c => c == contact);
+
+            if (index >= 0)
+            {
+                // Update the contact at the specified index
+                contacts[index] = contact;
+                SaveContacts();
+            }
+        }
+
         private void SaveContacts()
         {
             string json = JsonConvert.SerializeObject(contacts, new ImageSourceConverterFactory());
@@ -86,12 +101,20 @@ namespace ContactPersonenApp
     public partial class NieuwContactPage : ContentPage
     {
         private ContactsManager contactsManager;
+        public Contact SelectedContact { get; set; }
 
         public NieuwContactPage()
         {
             InitializeComponent();
             contactsManager = new ContactsManager();
         }
+
+        public NieuwContactPage(Contact selectedContact) : this()
+        {
+            SelectedContact = selectedContact;
+            FillFields();
+        }
+
         private void SaveButton_Clicked(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(voornaamEditor.Text) ||
@@ -114,37 +137,44 @@ namespace ContactPersonenApp
                     ContactImage = contactImage.Source?.ToString() // Store the image source as a string
                 };
 
-                // Get the app-specific directory for storing the file
-                string directory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-                string filePath = Path.Combine(directory, "contacts.json");
+                // Add the new contact to the contacts manager
+                contactsManager.AddContact(newContact);
 
-                try
-                {
-                    // Serialize the newContact object to JSON
-                    string json = JsonConvert.SerializeObject(newContact);
+                // Display the success popup with the name of the new contact
+                DisplayAlert("Success", $"Contact opgeslagen: {newContact.Voornaam} {newContact.Achternaam}", "OK");
 
-                    // Write the JSON data to the file
-                    File.WriteAllText(filePath, json);
-
-                    // Display the success popup with the name of the new contact
-                    DisplayAlert("Success", $"Contact saved: {newContact.Voornaam} {newContact.Achternaam}", "OK");
-
-                    // Clear the editor fields and image after successful save
-                    voornaamEditor.Text = string.Empty;
-                    achternaamEditor.Text = string.Empty;
-                    telefoonnummerEditor.Text = string.Empty;
-                    manCheckbox.IsChecked = false;
-                    vrouwCheckbox.IsChecked = false;
-                    onbekendCheckbox.IsChecked = false;
-                    contactImage.Source = null;
-                }
-                catch (Exception ex)
-                {
-                    DisplayAlert("Error", $"Failed to save contact: {ex.Message}", "OK");
-                }
+                // Clear the editor fields and image after successful save
+                voornaamEditor.Text = string.Empty;
+                achternaamEditor.Text = string.Empty;
+                telefoonnummerEditor.Text = string.Empty;
+                manCheckbox.IsChecked = false;
+                vrouwCheckbox.IsChecked = false;
+                onbekendCheckbox.IsChecked = false;
+                contactImage.Source = null;
             }
         }
 
+        private void FillFields()
+        {
+            voornaamEditor.Text = SelectedContact.Voornaam;
+            achternaamEditor.Text = SelectedContact.Achternaam;
+            telefoonnummerEditor.Text = SelectedContact.Telefoonnummer;
+
+            if (SelectedContact.ManChecked)
+                manCheckbox.IsChecked = true;
+            else if (SelectedContact.VrouwChecked)
+                vrouwCheckbox.IsChecked = true;
+            else if (SelectedContact.OnbekendChecked)
+                onbekendCheckbox.IsChecked = true;
+
+            if (!string.IsNullOrEmpty(SelectedContact.ContactImage))
+            {
+                if (Uri.TryCreate(SelectedContact.ContactImage, UriKind.Absolute, out Uri imageUri))
+                    contactImage.Source = ImageSource.FromUri(imageUri);
+                else
+                    contactImage.Source = null; // Handle invalid URI case
+            }
+        }
 
         private async void MaakFotoButton_Clicked(object sender, EventArgs e)
         {

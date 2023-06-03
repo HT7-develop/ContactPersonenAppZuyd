@@ -70,9 +70,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Pages\SingleContactPage.xaml.cs">
-	    <DependentUpon>SingleContactPage.xaml</DependentUpon>
-	  </Compile>
 	  <Compile Update="Pages\NotePage.xaml.cs">
 	    <DependentUpon>NotePage.xaml</DependentUpon>
 	  </Compile>
@@ -82,9 +79,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Pages\SingleContactPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="Pages\NotePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
