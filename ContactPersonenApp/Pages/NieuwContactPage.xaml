@@ -1,0 +1,73 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ContactPersonenApp.NieuwContactPage"
+             Title="Nieuw Contact">
+
+    <Grid Margin="5" ColumnSpacing="4" RowSpacing="4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Margin="10" Grid.ColumnSpan="3" >
+            <Grid BackgroundColor="Orange" Padding="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100" />
+                    <!-- Set the desired height in pixels -->
+                </Grid.RowDefinitions>
+                <Frame Padding="0" BackgroundColor="DarkBlue" CornerRadius="3" HasShadow="False">
+                    <Image x:Name="contactImage" Source="Images/dotnet_bot.svg" Aspect="AspectFit" />
+                </Frame>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" ColumnSpacing="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Text="Maak Foto" Clicked="MaakFotoButton_Clicked" Grid.Column="0" HorizontalOptions="FillAndExpand" />
+            <Button Text="Kies Foto" Clicked="KiesFotoButton_Clicked" Grid.Column="1" HorizontalOptions="FillAndExpand" />
+        </Grid>
+
+        <Label Text="Naam en Telefoonnummer" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="Center" />
+
+        <Editor x:Name="voornaamEditor" Placeholder="Voornaam" Grid.Row="3" Grid.Column="0" />
+        <Editor x:Name="achternaamEditor" Placeholder="Achternaam" Grid.Row="3" Grid.Column="1" />
+        <Editor x:Name="telefoonnummerEditor"
+        Placeholder="Telefoonnummer"
+        Grid.Row="3"
+        Grid.Column="2"
+        Keyboard="Telephone" />
+
+
+
+        <StackLayout Orientation="Horizontal" Grid.Row="4" Grid.Column="0" HorizontalOptions="Center">
+            <CheckBox x:Name="manCheckbox" VerticalOptions="Center" />
+            <Label Text="Man" VerticalOptions="Center" />
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal" Grid.Row="4" Grid.Column="1" HorizontalOptions="Center">
+            <CheckBox x:Name="vrouwCheckbox" VerticalOptions="Center" />
+            <Label Text="Vrouw" VerticalOptions="Center" />
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal" Grid.Row="4" Grid.Column="2" HorizontalOptions="Center">
+            <CheckBox x:Name="onbekendCheckbox" VerticalOptions="Center" />
+            <Label Text="Onbekend" VerticalOptions="Center" />
+        </StackLayout>
+
+        <Button Text="Opslaan" Clicked="SaveButton_Clicked" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="Center" />
+    </Grid>
+</ContentPage>
