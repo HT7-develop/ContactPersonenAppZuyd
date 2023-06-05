@@ -21,11 +21,24 @@
                   SelectionChanged="CollectionView_SelectionChanged">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:Persoon">
-                    <VerticalStackLayout>
-                        <Label Text="{Binding VoorNaam}"/>
-                        <Label Text="{Binding AchterNaam}"/>
-                        <Image Source="{Binding Afbeelding}" WidthRequest="30" HeightRequest="30" Aspect="AspectFit"/>
-                    </VerticalStackLayout>
+                    <Grid Margin="5" BackgroundColor="Gray">
+                        
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90" />
+                            <ColumnDefinition Width="90" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        
+                        <Image Grid.Column="0" Source="{Binding Afbeelding}" HeightRequest="50" WidthRequest="50" Aspect="AspectFit"/>
+                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding VoorNaam}" TextColor="Black" FontSize="Medium"/>
+                        <Label Grid.Row="0" Grid.Column="2" Text="{Binding AchterNaam}" TextColor="Black" FontSize="Medium"/>
+                        
+                    </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>

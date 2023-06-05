@@ -37,10 +37,29 @@ public partial class TodoItemPage : ContentPage
 
     async void OnDeleteClicked(object sender, EventArgs e)
     {
-        if (Item.ID == 0)
-            return;
-        await database.DeleteItemAsync(Item);
-        await Shell.Current.GoToAsync("..");
+        if (await this.DisplayAlert(
+
+                "Verwijderen",
+                "Weet u het zeker?",
+                "Ja",
+                "Nee")
+
+            )
+        {
+            try
+            {
+                if (Item.ID == 0)
+                    return;
+                await database.DeleteItemAsync(Item);
+                await Shell.Current.GoToAsync("..");
+            }
+            catch (Exception)
+            {
+                // Other error has occurred.
+                await DisplayAlert("Foutmelding", "Er is iets misgegaan, probeer opnieuw.", "OK");
+            }
+        }
+
     }
 
     async void OnCancelClicked(object sender, EventArgs e)
@@ -94,8 +113,9 @@ public partial class TodoItemPage : ContentPage
                 await sourceStream.CopyToAsync(localFileStream);
 
                 // save the file into the database
-                
-                // ... Marcel vragen (hoe afbeelding opslaan in database)
+
+                var fileInfo = new FileInfo(photo?.FullPath);
+                Item.Afbeelding = fileInfo.ToString();
 
             }
         }
@@ -106,18 +126,27 @@ public partial class TodoItemPage : ContentPage
     {
         // ... Marcel vragen (hoe afbeelding opslaan in database)
 
-        var result = await FilePicker.PickAsync(new PickOptions
+        var selectphoto = await FilePicker.PickAsync(new PickOptions
         {
             FileTypes = FilePickerFileType.Images
         });
 
-        if (result == null)
+        if (selectphoto == null)
             return;
 
-        var stream = await result.OpenReadAsync();
+        var stream = await selectphoto.OpenReadAsync();
 
         ImageSource image = ImageSource.FromStream(() => stream);
 
-        LblAfbeelding.Source = image; //dit werk niet.
+        var fileInfo = new FileInfo(selectphoto?.FullPath);
+        Item.Afbeelding = fileInfo.ToString();
+
     }
+
+    private void RadioButton_CheckedChanged(object sender, CheckedChangedEventArgs e)
+    {
+        RadioButton button = sender as RadioButton;
+        Item.Geslacht = button.Content.ToString();
+    }
+
 }

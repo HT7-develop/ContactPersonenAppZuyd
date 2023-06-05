@@ -24,9 +24,12 @@
             <Entry Text="{Binding TelefoonNummer}" />
 
             <HorizontalStackLayout>
-                <RadioButton Content="Man" IsChecked="{Binding Geslacht, Converter={StaticResource RadioButtonConverter}, ConverterParameter='Male'}" />
-                <RadioButton Content="Vrouw" IsChecked="{Binding Geslacht, Converter={StaticResource RadioButtonConverter}, ConverterParameter='Vrouw'}" />
-                <RadioButton Content="Onbekend" IsChecked="{Binding Geslacht, Converter={StaticResource RadioButtonConverter}, ConverterParameter='Onbekend'}" />
+                <RadioButton Content="Man"
+                     CheckedChanged="RadioButton_CheckedChanged" />
+                <RadioButton Content="Vrouw"
+                     CheckedChanged="RadioButton_CheckedChanged" />
+                <RadioButton Content="Onbekend"
+                     CheckedChanged="RadioButton_CheckedChanged"/>
             </HorizontalStackLayout>
 
 

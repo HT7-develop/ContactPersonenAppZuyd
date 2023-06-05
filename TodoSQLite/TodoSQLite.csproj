@@ -49,7 +49,6 @@
 	  <None Remove="Resources\Images\new_contact.png" />
 	  <None Remove="Resources\Images\person.png" />
 	  <None Remove="Resources\Images\phone.png" />
-	  <None Remove="Resources\Images\save.png" />
 	  <None Remove="Resources\Images\trash.png" />
 	</ItemGroup>
 
