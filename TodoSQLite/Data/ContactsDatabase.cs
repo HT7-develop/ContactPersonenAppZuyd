@@ -75,7 +75,6 @@ public class ContactsDatabase
             return mobileNumber;
         }
 
-        // Rest of the code...
     }
 
 

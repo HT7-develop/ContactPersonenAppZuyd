@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TodoSQLite.Views.TodoItemPage"
+             x:Class="TodoSQLite.Views.NewContact"
              Title="Persoon Detail"
              xmlns:models="clr-namespace:TodoSQLite.Models"
              x:DataType="models:Persoon">
@@ -48,7 +48,7 @@
         <Image x:Name="LblAfbeelding" 
                Source="{Binding Afbeelding}" WidthRequest="200" HeightRequest="200" Aspect="AspectFit"/>
 
-        <Grid RowSpacing="10">
+        <Grid RowSpacing="10" ColumnSpacing="10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
@@ -59,41 +59,43 @@
                 <RowDefinition />
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <Button x:Name="PhotoButton" 
-                Text="Foto Maken" 
-                FontSize="Medium"
-                HeightRequest="50"
-                HorizontalOptions="Fill"
-                Grid.Column="0"
-                    Grid.Row="0"
-                Clicked="PhotoButton_Clicked" />
 
-            <Button x:Name="GallaryPhotoButton" 
-                Text="Gallerij" 
-                FontSize="Medium"
-                HeightRequest="50"
-                HorizontalOptions="Fill"
-                Grid.Column="1"
-                Grid.Row="0"
-                Clicked="GallaryPhotoButton_Clicked" />
+            <Button x:Name="PhotoButton" 
+            Text="Foto Maken" 
+            FontSize="Medium"
+            HeightRequest="50"
+            HorizontalOptions="FillAndExpand"
+            Grid.Column="0"
+            Grid.Row="0"
+            Clicked="PhotoButton_Clicked" />
+
+            <Button x:Name="GallaryPhotoButton"
+            Text="Gallerij" 
+            FontSize="Medium"
+            HeightRequest="50"
+            HorizontalOptions="FillAndExpand"
+            Grid.Column="1"
+            Grid.Row="0"
+            Clicked="GallaryPhotoButton_Clicked" />
 
             <Button x:Name="CallButton" 
-                Text="Bellen" 
-                FontSize="Medium"
-                HeightRequest="50"
-                HorizontalOptions="FillAndExpand" 
-                Grid.Row="1"
-                    Grid.ColumnSpan="2"
-                Clicked="CallButton_Clicked" />
+            Text="Bellen" 
+            FontSize="Medium"
+            HeightRequest="50"
+            HorizontalOptions="FillAndExpand" 
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            Clicked="CallButton_Clicked" />
 
             <Button Text="Cancel"
-                FontSize="Medium"
-                HeightRequest="50"
-                HorizontalOptions="FillAndExpand" 
-                Grid.Row="2"
-                    Grid.ColumnSpan="2"
-                Clicked="OnCancelClicked" />
+            FontSize="Medium"
+            HeightRequest="50"
+            HorizontalOptions="FillAndExpand" 
+            Grid.Row="2"
+            Grid.ColumnSpan="2"
+            Clicked="OnCancelClicked" />
         </Grid>
+
 
 
 

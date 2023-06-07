@@ -1,8 +1,5 @@
-using Microsoft.Maui.Graphics;
 using TodoSQLite.Data;
 using TodoSQLite.Models;
-using Plugin.Media;
-using Plugin.Media.Abstractions;
 namespace TodoSQLite.Views;
 
 [QueryProperty("Item", "Item")]
@@ -10,34 +7,18 @@ public partial class NewContact : ContentPage
 {
 	Persoon item;
 
-
 	public Persoon Item
 	{
 		get => BindingContext as Persoon;
 		set => BindingContext = value;
 	}
+
     ContactsDatabase database;
+
     public NewContact(ContactsDatabase CDatabase)
     {
         InitializeComponent();
         database = CDatabase;
-
-        /*        if (Item.Geslacht != null)
-                {
-                    if (Item.Geslacht.ToString() == "Man")
-                    {
-                        radiobuttonman.IsChecked = true;
-                    }
-                    if (Item.Geslacht.ToString() == "Vrouw")
-                    {
-                        radiobuttonvrouw.IsChecked = true;
-                    }
-                }
-                else
-                {
-                    radiobuttononbekend.IsChecked = true;
-                }*/
-
     }
 
     async void OnSaveClicked(object sender, EventArgs e)
@@ -136,6 +117,8 @@ public partial class NewContact : ContentPage
                 var fileInfo = new FileInfo(photo?.FullPath);
                 Item.Afbeelding = fileInfo.ToString();
 
+                // trigger reload
+                OnPropertyChanged(nameof(Item.Afbeelding));
             }
         }
 

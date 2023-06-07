@@ -31,7 +31,7 @@ public partial class ContactList : ContentPage
     }
     async void OnItemAdded(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync(nameof(TodoItemPage), true, new Dictionary<string, object>
+        await Shell.Current.GoToAsync(nameof(NewContact), true, new Dictionary<string, object>
         {
             ["Item"] = new Persoon()
 
@@ -44,7 +44,7 @@ public partial class ContactList : ContentPage
         if (e.CurrentSelection.FirstOrDefault() is not Persoon item)
             return;
 
-        await Shell.Current.GoToAsync(nameof(TodoItemPage), true, new Dictionary<string, object>
+        await Shell.Current.GoToAsync(nameof(NewContact), true, new Dictionary<string, object>
         {
             ["Item"] = item
         });
