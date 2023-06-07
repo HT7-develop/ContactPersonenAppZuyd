@@ -8,7 +8,7 @@
 
     <ShellContent
         Title="Todo"
-        ContentTemplate="{DataTemplate views:TodoListPage}"
+        ContentTemplate="{DataTemplate views:ContactList}"
         Route="TodoList" />
 
 </Shell>

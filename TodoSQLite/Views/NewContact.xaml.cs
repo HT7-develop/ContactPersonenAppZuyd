@@ -3,11 +3,10 @@ using TodoSQLite.Data;
 using TodoSQLite.Models;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
-
 namespace TodoSQLite.Views;
 
 [QueryProperty("Item", "Item")]
-public partial class TodoItemPage : ContentPage
+public partial class NewContact : ContentPage
 {
 	Persoon item;
 
@@ -17,11 +16,11 @@ public partial class TodoItemPage : ContentPage
 		get => BindingContext as Persoon;
 		set => BindingContext = value;
 	}
-    TodoItemDatabase database;
-    public TodoItemPage(TodoItemDatabase todoItemDatabase)
+    ContactsDatabase database;
+    public NewContact(ContactsDatabase CDatabase)
     {
         InitializeComponent();
-        database = todoItemDatabase;
+        database = CDatabase;
 
         /*        if (Item.Geslacht != null)
                 {

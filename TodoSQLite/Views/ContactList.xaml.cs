@@ -4,11 +4,11 @@ using TodoSQLite.Models;
 
 namespace TodoSQLite.Views;
 
-public partial class TodoListPage : ContentPage
+public partial class ContactList : ContentPage
 {
-    TodoItemDatabase database;
+    ContactsDatabase database;
     public ObservableCollection<Persoon> Items { get; set; } = new();
-    public TodoListPage(TodoItemDatabase todoItemDatabase)
+    public ContactList(ContactsDatabase todoItemDatabase)
 	{
 		InitializeComponent();
         database = todoItemDatabase;

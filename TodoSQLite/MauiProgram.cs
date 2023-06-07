@@ -17,10 +17,10 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
 
-		builder.Services.AddSingleton<TodoListPage>();
-		builder.Services.AddTransient<TodoItemPage>();
+		builder.Services.AddSingleton<ContactList>();
+		builder.Services.AddTransient<NewContact>();
 
-		builder.Services.AddSingleton<TodoItemDatabase>();
+		builder.Services.AddSingleton<ContactsDatabase>();
 
 		return builder.Build();
 	}

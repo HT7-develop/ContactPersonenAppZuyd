@@ -7,88 +7,96 @@
              x:DataType="models:Persoon">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem IconImageSource="save.png" Clicked="OnSaveClicked"/>
+        <ToolbarItem IconImageSource="save.png"  Clicked="OnSaveClicked"/>
         <ToolbarItem IconImageSource="trash.png" Clicked="OnDeleteClicked"/>
     </ContentPage.ToolbarItems>
 
-    <ScrollView>
-        <VerticalStackLayout Padding="20"
+
+    <VerticalStackLayout Padding="20"
                              Spacing="10"
                              VerticalOptions="StartAndExpand">
-            
-            <Label Text="Voornaam" />
-            <Entry Text="{Binding VoorNaam}" />
-            <Label Text="Achternaam" />
-            <Entry Text="{Binding AchterNaam}" />
-            <Label Text="Telefoonnummer" />
-            <Entry Text="{Binding TelefoonNummer}" />
 
-            <HorizontalStackLayout>
-                <RadioButton 
+        <Label Text="Voornaam" />
+        <Entry Text="{Binding VoorNaam}" Keyboard="Text"/>
+        <Label Text="Achternaam" />
+        <Entry Text="{Binding AchterNaam}" Keyboard="Text"/>
+        <Label Text="Telefoonnummer" />
+        <Entry Text="{Binding TelefoonNummer}" Keyboard="Telephone"/>
+
+        <HorizontalStackLayout  HorizontalOptions="Center">
+            <RadioButton 
                              x:Name="radiobuttonman"
                              Content="Man"
                              IsChecked="{Binding IsMan}"
                              GroupName="Geslacht"
                              CheckedChanged="RadioButton_CheckedChanged"/>
-                <RadioButton 
+            <RadioButton 
                              x:Name="radiobuttonvrouw"
                              Content="Vrouw"
                              IsChecked="{Binding IsVrouw}"
                              GroupName="Geslacht"
                              CheckedChanged="RadioButton_CheckedChanged" />
-                <RadioButton
+            <RadioButton
                              x:Name="radiobuttononbekend"
                              Content="Onbekend"
                              IsChecked="{Binding IsOnbekend}"
                              GroupName="Geslacht"
                              CheckedChanged="RadioButton_CheckedChanged"/>
-            </HorizontalStackLayout>
+        </HorizontalStackLayout>
 
 
-            <Image x:Name="LblAfbeelding" 
-               Source="{Binding Afbeelding}" WidthRequest="300" HeightRequest="400" Aspect="AspectFit"/>
+        <Image x:Name="LblAfbeelding" 
+               Source="{Binding Afbeelding}" WidthRequest="200" HeightRequest="200" Aspect="AspectFit"/>
 
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
+        <Grid RowSpacing="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-                <Button x:Name="PhotoButton" 
-            Text="Foto Maken" 
-            TextColor="Black"
-            FontSize="Medium"
-            HeightRequest="50"
-            HorizontalOptions="Fill"
-            Grid.Column="0"
-            Clicked="PhotoButton_Clicked" />
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Button x:Name="PhotoButton" 
+                Text="Foto Maken" 
+                FontSize="Medium"
+                HeightRequest="50"
+                HorizontalOptions="Fill"
+                Grid.Column="0"
+                    Grid.Row="0"
+                Clicked="PhotoButton_Clicked" />
 
-                <Button x:Name="GallaryPhotoButton" 
-            Text="Gallerij" 
-            TextColor="Black"
-            FontSize="Medium"
-            HeightRequest="50"
-            HorizontalOptions="Fill"
-            Grid.Column="1"
-            Clicked="GallaryPhotoButton_Clicked" />
-            </Grid>
-
+            <Button x:Name="GallaryPhotoButton" 
+                Text="Gallerij" 
+                FontSize="Medium"
+                HeightRequest="50"
+                HorizontalOptions="Fill"
+                Grid.Column="1"
+                Grid.Row="0"
+                Clicked="GallaryPhotoButton_Clicked" />
 
             <Button x:Name="CallButton" 
                 Text="Bellen" 
-                TextColor="Black"
                 FontSize="Medium"
                 HeightRequest="50"
                 HorizontalOptions="FillAndExpand" 
+                Grid.Row="1"
+                    Grid.ColumnSpan="2"
                 Clicked="CallButton_Clicked" />
-            
+
             <Button Text="Cancel"
-                TextColor="Black"
                 FontSize="Medium"
                 HeightRequest="50"
                 HorizontalOptions="FillAndExpand" 
+                Grid.Row="2"
+                    Grid.ColumnSpan="2"
                 Clicked="OnCancelClicked" />
-            
-        </VerticalStackLayout>
-    </ScrollView>
+        </Grid>
+
+
+
+
+    </VerticalStackLayout>
 </ContentPage>
