@@ -11,4 +11,8 @@ public class Persoon
     public string Afbeelding { get; set; }
     public string TelefoonNummer { get; set; }
     public string Geslacht { get; set; }
+    public bool IsMan { get; set; }
+    public bool IsVrouw { get; set; }
+    public bool IsOnbekend { get; set; }
+
 }

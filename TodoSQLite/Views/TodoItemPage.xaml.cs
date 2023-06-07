@@ -11,6 +11,7 @@ public partial class TodoItemPage : ContentPage
 {
 	Persoon item;
 
+
 	public Persoon Item
 	{
 		get => BindingContext as Persoon;
@@ -21,6 +22,23 @@ public partial class TodoItemPage : ContentPage
     {
         InitializeComponent();
         database = todoItemDatabase;
+
+        /*        if (Item.Geslacht != null)
+                {
+                    if (Item.Geslacht.ToString() == "Man")
+                    {
+                        radiobuttonman.IsChecked = true;
+                    }
+                    if (Item.Geslacht.ToString() == "Vrouw")
+                    {
+                        radiobuttonvrouw.IsChecked = true;
+                    }
+                }
+                else
+                {
+                    radiobuttononbekend.IsChecked = true;
+                }*/
+
     }
 
     async void OnSaveClicked(object sender, EventArgs e)
@@ -33,6 +51,8 @@ public partial class TodoItemPage : ContentPage
 
         await database.SaveItemAsync(Item);
         await Shell.Current.GoToAsync("..");
+
+        //await DisplayAlert("geslacht", $"{Item.Geslacht}", "OK");
     }
 
     async void OnDeleteClicked(object sender, EventArgs e)
@@ -147,6 +167,21 @@ public partial class TodoItemPage : ContentPage
     {
         RadioButton button = sender as RadioButton;
         Item.Geslacht = button.Content.ToString();
+
+
+        if (Item.IsMan)
+        {
+            radiobuttonman.IsChecked = true;
+        }        
+        else if (Item.IsVrouw)
+        {
+            radiobuttonvrouw.IsChecked = true;
+        }          
+        else if (Item.IsOnbekend)
+        {
+            radiobuttononbekend.IsChecked = true;
+        }
+            
     }
 
 }

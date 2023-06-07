@@ -24,12 +24,24 @@
             <Entry Text="{Binding TelefoonNummer}" />
 
             <HorizontalStackLayout>
-                <RadioButton Content="Man"
-                     CheckedChanged="RadioButton_CheckedChanged" />
-                <RadioButton Content="Vrouw"
-                     CheckedChanged="RadioButton_CheckedChanged" />
-                <RadioButton Content="Onbekend"
-                     CheckedChanged="RadioButton_CheckedChanged"/>
+                <RadioButton 
+                             x:Name="radiobuttonman"
+                             Content="Man"
+                             IsChecked="{Binding IsMan}"
+                             GroupName="Geslacht"
+                             CheckedChanged="RadioButton_CheckedChanged"/>
+                <RadioButton 
+                             x:Name="radiobuttonvrouw"
+                             Content="Vrouw"
+                             IsChecked="{Binding IsVrouw}"
+                             GroupName="Geslacht"
+                             CheckedChanged="RadioButton_CheckedChanged" />
+                <RadioButton
+                             x:Name="radiobuttononbekend"
+                             Content="Onbekend"
+                             IsChecked="{Binding IsOnbekend}"
+                             GroupName="Geslacht"
+                             CheckedChanged="RadioButton_CheckedChanged"/>
             </HorizontalStackLayout>
 
 

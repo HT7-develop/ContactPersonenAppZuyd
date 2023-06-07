@@ -13,6 +13,7 @@ public partial class TodoListPage : ContentPage
 		InitializeComponent();
         database = todoItemDatabase;
         BindingContext = this;
+
     }
 
 
@@ -33,7 +34,9 @@ public partial class TodoListPage : ContentPage
         await Shell.Current.GoToAsync(nameof(TodoItemPage), true, new Dictionary<string, object>
         {
             ["Item"] = new Persoon()
+
         });
+
     }
 
     private async void  CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
