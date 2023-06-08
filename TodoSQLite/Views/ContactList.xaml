@@ -41,10 +41,7 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <!--<Image Grid.Column="0" Source="{Binding Afbeelding}" HeightRequest="50" WidthRequest="50" Aspect="AspectFill"/>-->
-                        <Image Grid.Column="0" Source="{Binding Afbeelding, Converter={StaticResource ImagePathToImageSourceConverter}}" HeightRequest="50" WidthRequest="50" Aspect="AspectFill"/>
-
-
+                        <Image Grid.Column="0" Source="{Binding Afbeelding}" HeightRequest="50" WidthRequest="50" Aspect="AspectFill"/>
                         <Label Grid.Row="0" Grid.Column="1" Text="{Binding VoorNaam}"  FontSize="Medium"/>
                         <Label Grid.Row="0" Grid.Column="2" Text="{Binding AchterNaam}" FontSize="Medium"/>
 
