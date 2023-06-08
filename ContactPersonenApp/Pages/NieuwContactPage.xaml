@@ -2,7 +2,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ContactPersonenApp.NieuwContactPage"
              Title="Nieuw/Edit Contact">
-    
    
     <Grid Margin="5" ColumnSpacing="4" RowSpacing="4">
         <Grid.RowDefinitions>
@@ -24,7 +23,6 @@
             <Grid BackgroundColor="Orange" Padding="3">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="100" />
-                    <!-- Set the desired height in pixels -->
                 </Grid.RowDefinitions>
                 <Frame Padding="0" BackgroundColor="DarkBlue" CornerRadius="3" HasShadow="False">
                     <Image x:Name="contactImage" Source="Images/dotnet_bot.svg" Aspect="AspectFit" />
@@ -51,8 +49,6 @@
         Grid.Row="3"
         Grid.Column="2"
         Keyboard="Telephone" />
-
-
 
         <StackLayout Orientation="Horizontal" Grid.Row="4" Grid.Column="0" HorizontalOptions="Center">
             <CheckBox x:Name="manCheckbox" VerticalOptions="Center" />
