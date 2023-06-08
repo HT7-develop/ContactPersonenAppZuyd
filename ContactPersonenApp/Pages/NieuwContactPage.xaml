@@ -2,7 +2,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ContactPersonenApp.NieuwContactPage"
              Title="Nieuw/Edit Contact">
-
+    
+   
     <Grid Margin="5" ColumnSpacing="4" RowSpacing="4">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />

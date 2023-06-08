@@ -6,6 +6,6 @@ public partial class AppShell : Shell
 	{
 		InitializeComponent();
 
-        //Routing.RegisterRoute(nameof(ContactToevoegenPage), typeof(ContactToevoegenPage));
-    }
+		Routing.RegisterRoute(nameof(NieuwContactPage), typeof(NieuwContactPage));
+	}
 }

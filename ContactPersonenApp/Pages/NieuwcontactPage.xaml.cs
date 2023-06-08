@@ -50,14 +50,26 @@ namespace ContactPersonenApp
     public class ContactsManager
     {
         private List<Contact> contacts;
-        private const string contactsFilePath = "contacts.json";
+        private const string contactsFileName = "contactsNieuw.json";
 
         public ContactsManager()
         {
             contacts = LoadContacts();
         }
 
+        private string GetDownloadsFolderPath()
+        {
+            string downloadsFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            downloadsFolderPath = Path.Combine(downloadsFolderPath, "Downloads");
+            return downloadsFolderPath;
+        }
 
+        private string GetContactsFilePath()
+        {
+            string downloadsFolderPath = GetDownloadsFolderPath();
+            string contactsFilePath = Path.Combine(downloadsFolderPath, contactsFileName);
+            return contactsFilePath;
+        }
 
         public void AddContact(Contact contact)
         {
@@ -67,6 +79,8 @@ namespace ContactPersonenApp
 
         private List<Contact> LoadContacts()
         {
+            string contactsFilePath = GetContactsFilePath();
+
             if (File.Exists(contactsFilePath))
             {
                 string json = File.ReadAllText(contactsFilePath);
@@ -93,6 +107,12 @@ namespace ContactPersonenApp
 
         private void SaveContacts()
         {
+            string contactsFilePath = GetContactsFilePath();
+
+            // Create the Downloads folder if it doesn't exist
+            string downloadsFolderPath = GetDownloadsFolderPath();
+            Directory.CreateDirectory(downloadsFolderPath);
+
             string json = JsonConvert.SerializeObject(contacts, new ImageSourceConverterFactory());
             File.WriteAllText(contactsFilePath, json);
         }
