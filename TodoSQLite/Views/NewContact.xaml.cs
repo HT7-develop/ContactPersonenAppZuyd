@@ -1,6 +1,6 @@
-using TodoSQLite.Data;
-using TodoSQLite.Models;
-namespace TodoSQLite.Views;
+using ContactPersonenApp.Data;
+using ContactPersonenApp.Models;
+namespace ContactPersonenApp.Views;
 
 [QueryProperty("Item", "Item")]
 public partial class NewContact : ContentPage

@@ -15,7 +15,7 @@ using Android.Runtime;
 [assembly: UsesFeature("android.hardware.camera", Required = true)]
 [assembly: UsesFeature("android.hardware.camera.autofocus", Required = true)]
 
-namespace TodoSQLite;
+namespace ContactPersonenApp;
 
 [Application]
 public class MainApplication : MauiApplication

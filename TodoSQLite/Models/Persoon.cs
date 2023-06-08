@@ -1,7 +1,7 @@
 ﻿using SQLite;
 using System.ComponentModel;
 
-namespace TodoSQLite.Models
+namespace ContactPersonenApp.Models
 {
     public class Persoon : INotifyPropertyChanged
     {

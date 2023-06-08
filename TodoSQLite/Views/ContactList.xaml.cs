@@ -1,8 +1,8 @@
 ﻿using System.Collections.ObjectModel;
-using TodoSQLite.Data;
-using TodoSQLite.Models;
+using ContactPersonenApp.Data;
+using ContactPersonenApp.Models;
 
-namespace TodoSQLite.Views;
+namespace ContactPersonenApp.Views;
 
 public partial class ContactList : ContentPage
 {

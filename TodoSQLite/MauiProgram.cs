@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection.Extensions;
-using TodoSQLite.Data;
-using TodoSQLite.Views;
+using ContactPersonenApp.Data;
+using ContactPersonenApp.Views;
 
-namespace TodoSQLite;
+namespace ContactPersonenApp;
 
 public static class MauiProgram
 {

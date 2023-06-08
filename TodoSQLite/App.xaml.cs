@@ -1,11 +1,13 @@
-﻿namespace TodoSQLite;
+﻿using ContactPersonenApp.Converters;
+
+namespace ContactPersonenApp;
 
 public partial class App : Application
 {
 	public App()
 	{
 		InitializeComponent();
-
-		MainPage = new AppShell();
+        Resources.Add("ImagePathToImageSourceConverter", new ImagePathToImageSourceConverter());
+        MainPage = new AppShell();
 	}
 }

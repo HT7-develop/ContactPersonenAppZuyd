@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace TodoSQLite;
+namespace ContactPersonenApp;
 
 [Register("AppDelegate")]
 public class AppDelegate : MauiUIApplicationDelegate

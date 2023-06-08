@@ -1,6 +1,6 @@
-﻿using TodoSQLite.Views;
+﻿using ContactPersonenApp.Views;
 
-namespace TodoSQLite;
+namespace ContactPersonenApp;
 
 public partial class AppShell : Shell
 {

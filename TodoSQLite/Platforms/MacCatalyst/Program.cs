@@ -1,7 +1,7 @@
 ﻿using ObjCRuntime;
 using UIKit;
 
-namespace TodoSQLite;
+namespace ContactPersonenApp;
 
 public class Program
 {
